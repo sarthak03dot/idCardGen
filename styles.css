@@ -41,3 +41,56 @@ h1 {
     font-size: 14px;
     text-align: center;
 }
+
+@media print {
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 210mm;
+        height: 297mm;
+    }
+
+    #id-cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Responsive layout */
+        gap: 10px;
+        padding: 10mm;
+        margin: 0;
+    }
+
+    .id-card {
+        width: 150px;  /* Adjust width of each card */
+        height: 230px; /* Adjust height to fit more cards */
+        border: 1px solid #000;
+        background-color: #f4f4f4;
+        padding: 10px;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        page-break-inside: avoid;
+    }
+
+    .id-card img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .id-card h3 {
+        margin: 5px 0;
+        font-size: 14px;
+        text-align: center;
+    }
+
+    .id-card p {
+        font-size: 12px;
+        text-align: center;
+    }
+
+    /* Avoid printing header and file input */
+    h1, #excel-file, #generate-cards {
+        display: none;
+    }
+}
