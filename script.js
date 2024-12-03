@@ -57,3 +57,20 @@ document.getElementById("generate-cards").addEventListener("click", function() {
         fileInput.dispatchEvent(new Event('change')); // Trigger file processing
     }
 });
+
+document.getElementById("generate-cards").addEventListener("click", function() {
+    const fileInput = document.getElementById("excel-file");
+    if (!fileInput.files.length) {
+        alert("Please upload an Excel file first.");
+    } else {
+        fileInput.dispatchEvent(new Event('change')); // Trigger file processing
+    }
+});
+
+// Add print functionality
+function printIDCards() {
+    window.print(); // This will trigger the browser's print dialog, allowing users to print as PDF
+}
+
+document.getElementById("print-cards").addEventListener("click", printIDCards);
+
