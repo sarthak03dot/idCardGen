@@ -16,6 +16,9 @@ function handleFile(event) {
     reader.readAsBinaryString(file);
 }
 
+
+
+
 function generateIDCards(data) {
     const container = document.getElementById("id-cards-container");
     container.innerHTML = ""; // Clear any previous cards
@@ -24,9 +27,32 @@ function generateIDCards(data) {
         const idCard = document.createElement("div");
         idCard.className = "id-card";
 
+        // Logo and text container
+        const logoContainer = document.createElement("div");
+        logoContainer.className = "logo-container";
+
+        const logo1 = document.createElement("img");
+        logo1.src = 'swami_ji1.webp';
+        logo1.className = "logo";
+
+        const logoText = document.createElement("span");
+        logoText.className = "logo-text";
+        logoText.innerText = "DESHYOGA CHARITABLE TRUST";
+
+        const logo2 = document.createElement("img");
+        logo2.src = 'logo.webp';
+        logo2.className = "logo";
+
+        logoContainer.appendChild(logo1);
+        logoContainer.appendChild(logoText);
+        logoContainer.appendChild(logo2);
+
+        idCard.appendChild(logoContainer);
+
         // Create card elements
         const img = document.createElement("img");
         img.src = item.PhotoURL || 'default-photo.jpg'; // Optional photo field, use default if missing
+        img.className = "profile-pic";
         idCard.appendChild(img);
 
         const name = document.createElement("h3");

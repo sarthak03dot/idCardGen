@@ -1,11 +1,53 @@
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
+    background-color: #f5ece5;
 }
 
 h1 {
     text-align: center;
 }
+
+#fields {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+input[type='file'] {
+    background-color: #f3f3f3;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+input[type='file']::file-selector-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+input[type='file']::file-selector-button:hover {
+    background-color: #0056b3;
+}
+
+
+button {
+  background-color: #007bff;
+  height: 40px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+}
+
 
 #id-cards-container {
     display: flex;
@@ -14,21 +56,46 @@ h1 {
 }
 
 .id-card {
-    width: 200px;
-    height: 300px;
-    border: 1px solid #000;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
     margin: 10px;
-    padding: 15px;
-    background-color: #f4f4f4;
-    border-radius: 10px;
+    width: 230px;
+    height: 250px;
+    text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-color: #f6eeea;
+}
+
+.logo-container {
+    background-color: #f96319;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.logo {
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+}
+
+.logo-text {
+    font-size: 10px;
+    font-weight: bold;
+    color: #2c13eb;
 }
 
 .id-card img {
-    width: 100%;
-    height: 100px;
+    width: 30px;
+    height: 30px;
     object-fit: cover;
     border-radius: 50%;
+    margin-bottom: 10px;
 }
 
 .id-card h3 {
@@ -49,6 +116,7 @@ h1 {
         padding: 0;
         width: 210mm;
         height: 297mm;
+     
     }
 
     #id-cards-container {
@@ -57,22 +125,23 @@ h1 {
         gap: 10px;
         padding: 10mm;
         margin: 0;
+        background-color: #ffa070;
     }
 
     .id-card {
         width: 150px;  /* Adjust width of each card */
         height: 230px; /* Adjust height to fit more cards */
         border: 1px solid #000;
-        background-color: #f4f4f4;
+        background-color: #ebcda4;
         padding: 10px;
         border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: none; /* Remove shadow for print */
         page-break-inside: avoid;
     }
 
     .id-card img {
-        width: 100px;
-        height: 100px;
+        width: 30px;
+        height: 30px;
         object-fit: cover;
         border-radius: 50%;
         margin-bottom: 10px;
@@ -89,8 +158,8 @@ h1 {
         text-align: center;
     }
 
-    /* Avoid printing header and file input */
-    h1, #excel-file, #generate-cards {
+    /* Hide unnecessary elements for print */
+    h1, #excel-file, #generate-cards, #print-cards {
         display: none;
     }
 }
